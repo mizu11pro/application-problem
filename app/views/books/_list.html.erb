@@ -13,12 +13,12 @@
       </tr>
       <tr>
         <th>follows</th>
-        <th><%= link_to user.followings.count, user_followers_path(user) %></th>
+        <th><%= link_to user.followings.count, user_followings_path(user) %></th>
         <!--user.rbで指定した名前で指定？-->
       </tr>
       <tr>
         <th>followers</th>
-        <th><%= link_to user.followers.count, user_followings_path(user) %></th>
+        <th><%= link_to user.followers.count, user_followers_path(user) %></th>
       </tr>
      </tbody>
   </table>
@@ -28,9 +28,9 @@
     <%= link_to "", edit_user_path(user), class:"btn btn-outline-secondary btn-block fas fa-user-cog" %>
   <% else %>
     <% if current_user.following?(user) %>
-      <%= link_to "フォロー外す", user_relationships_path(user.id), method: :delete %>
+      <%= link_to "フォロー外す", user_relationships_path(user.id), method: :delete, class:"btn btn-outline-secondary" %>
     <% else %>
-      <%= link_to "フォローする", user_relationships_path(user.id), method: :post %>
+      <%= link_to "フォローする", user_relationships_path(user.id), method: :post, class:"btn btn-outline-secondary" %>
     <% end %>
   <% end %>
   </div>

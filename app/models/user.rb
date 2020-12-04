@@ -8,8 +8,8 @@ class User < ApplicationRecord
   has_many :book_comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
   attachment :profile_image
+
    # フォローしている人取得
-   
   has_many :of_relationships, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
   # フォローされている人を取得
   has_many :relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy

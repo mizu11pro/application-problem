@@ -1,0 +1,19 @@
+<div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+<h2>User info</h2>
+<%= render 'users/error_message', user: @user %>
+<%= form_with model:@user, local:true do |f| %>
+    <div class="form-group">
+    <label for="inputName">Name</label>
+    <%= f.text_field :name, autofocus: true, id:"inputName", placeholder:"", class:"form-control" %>
+    </div>
+    <div class="form-group">
+    <label for="inputImage">Image</label>
+    <%= f.attachment_field :profile_image, placeholder: "", class:"form-control-file user-image" %>
+    </div>
+    <div class="form-group">
+    <label for="inputIntroduction">Introduction</label>
+    <%= f.text_area :introduction, autofocus: true, placeholder:"", class:"form-control" %>
+    <%= f.submit "Update User",class:"btn btn-secondary" %>
+    </div>
+<% end %>
+</div>

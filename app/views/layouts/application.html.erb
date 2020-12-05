@@ -54,16 +54,18 @@
     </header>
 
   <main>
-    <div class="">
-  <% if user_signed_in? %>
-      <%= form_tag(search_path, method: :get) do %>
-        <%= text_field_tag (:word) %>
-        <!--検索内容＝word-->
-        <%= select_tag 'range' ,options_for_select([['user', '1'], ['book', '2']]) %>
-        <%= select_tag 'search', options_for_select([["前方一致","forward_match"], ["後方一致","backward_match"], ["完全一致","perfect_match"], ["部分一致","partial_match"]] )%>
-        <%= submit_tag "検索" %>
+    <div class="container">
+      <div class="row mt-3 mb-3 justify-content-center ">
+      <% if user_signed_in? %>
+          <%= form_with url: search_path, method: :get, local: true do |search| %>
+            <%= search.text_field (:word) %>
+            <!--検索内容＝word-->
+            <%= search.select 'range' ,options_for_select([['user', '1'], ['book', '2']]) %>
+            <%= search.select 'search', options_for_select([["前方一致","forward_match"], ["後方一致","backward_match"], ["完全一致","perfect_match"], ["部分一致","partial_match"]] )%>
+            <%= search.submit "検索" %>
+          <% end %>
       <% end %>
-  <% end %>
+      </div>
     </div>
     <p id="notice"><%= flash[:notice] %></p>
     <div class="container">

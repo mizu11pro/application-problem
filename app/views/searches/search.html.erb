@@ -1,7 +1,7 @@
 <% if @range == '1' %>
-
-    <h3>User search for</h3>
-    <table class="table">
+<div class="col-md-12">
+    <h3>User search for '<%= @word %>'</h3>
+    <table class="table table-striped">
         <thead>
             <tr>
                 <th>image</th>
@@ -32,7 +32,7 @@
         </tbody>
     </table>
 <% else %>
-        <h2>Book search for</h2>
+        <h2>Book search for "<%= @word %>"</h2>
         <table class="table">
             <thead>
                 <tr>
@@ -56,5 +56,5 @@
                 <% end %>
             </tbody>
         </table>
-
+</div>
 <% end %>

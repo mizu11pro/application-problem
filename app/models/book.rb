@@ -11,4 +11,19 @@ class Book < ApplicationRecord
     #  引数で渡されたユーザidがfavoritesテーブル内に存在(exists?)するかどうかを調べる
     #  存在していればtrue,なければfalseを返すようにしている
   end
+
+    def self.search(search,word)
+    if search == "forward_match"
+      @book = Book.where("title LIKE?","#{word}%")
+    elsif search == "backward_match"
+      @book = Book.where("title LIKE?","%#{word}")
+    elsif search == "perfect_match"
+      @book = Book.where("#{word}")
+    elsif search == "partial_match"
+      @book = Book.where("title LIKE?","%#{word}%")
+    else
+      @book = Book.all
+    end
+    end
+
 end

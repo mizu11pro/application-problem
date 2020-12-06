@@ -23,8 +23,8 @@
                 <td><%= book.body %></td>
                 <td class=<%= "favorite-buttons" +book.id.to_s %>>
                 <%= render 'favorites/favorite-btn', book: book %>
+                <!--class内の記述をjsにも書くことでjsがどこを操作するかを決めている-->
                 </td>
-                <!--class内の記述をjsにも書くことでjsがどこを作動させるかを決めている-->
                 <td>コメント件数：<%= book.book_comments.count %></td>
             </tr>
             <% end %>

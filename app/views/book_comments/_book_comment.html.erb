@@ -1,10 +1,12 @@
 <div class="comments">
 <% book.book_comments.each do |book_comment| %>
+<!--アクション内の定義と名前は揃える-->
     <%= attachment_image_tag user, :profile_image, size: "60x60", format: 'jpeg', fallback: "no_image.jpg" %>
     <%= book_comment.comment %>
     <% if book_comment.user == current_user %>
     <span class="comment-delete">
       <%= link_to "Destroy", book_book_comment_path(book_comment.book, book_comment), method: :delete, remote: true, class:"btn btn-danger" %>
+      <!--remote: trueでjs.erbファイルに飛ばす-->
     </span>
     <% end %>
     <p><%= book_comment.user.name %></p>
@@ -12,7 +14,9 @@
 </div>
 <div class="new-comments">
   <%= form_with(model:[book, book_comment], remote: true) do |comment| %>
-      <%= comment.text_area :comment, rows:'5', class:"col-md-10" %>
-      <%= comment.submit "送信" %>
+  <!--モデルの指定も@は なし-->
+  <!--remote: trueでjs.erbファイルに飛ばす-->
+    <%= comment.text_area :comment, rows:'5', class:"col-md-10" %>
+    <%= comment.submit "送信" %>
   <% end %>
 </div>

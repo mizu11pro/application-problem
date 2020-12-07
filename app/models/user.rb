@@ -36,9 +36,9 @@ class User < ApplicationRecord
   def follow(user_id)
       relationships.create(followed_id: user_id)
       # createメソッドはnewとsaveを合わせた挙動
+      # 下記と同様の意味
       # relationship = relationships.new(followed_id: user_id)
       # relationship.save
-      # 上記と同様の意味
   end
 
   def unfollow(user_id)
@@ -61,12 +61,16 @@ class User < ApplicationRecord
   def self.search(search,word)
     if search == "forward_match"
       @user = User.where("name LIKE?","#{word}%")
+      # 前方一致
     elsif search == "backward_match"
       @user = User.where("name LIKE?","%#{word}")
+      # 後方一致
     elsif search == "perfect_match"
       @user = User.where(name:"#{word}")
+      # 完全一致 "#{word}"の前のnameを記述しないとテーブルからどこの検索内容を持ってくるのかがわからなくなる
     elsif search == "partial_match"
       @user = User.where("name LIKE?","%#{word}%")
+      # 部分一致
     else
       @user = User.all
     end

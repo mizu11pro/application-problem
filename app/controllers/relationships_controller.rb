@@ -14,6 +14,7 @@ class RelationshipsController < ApplicationController
   def followings
     user = User.find(params[:user_id])
     @user = user.followings
+    # ユーザがフォローしているユーザ(一覧)？
   end
 
   def followers

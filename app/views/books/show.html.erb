@@ -24,6 +24,6 @@
     </tbody>
   </table>
         <div class=<%= "comment-buttons" +@book.id.to_s %>>
-          <%= render 'book_comments/book_comment', book: @book %>
+          <%= render 'book_comments/book_comment', book: @book, book_comment: @book_comment, user: @user %>
         </div>
 </div>

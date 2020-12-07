@@ -1,6 +1,6 @@
 <div class="comments">
 <% book.book_comments.each do |book_comment| %>
-    <%= attachment_image_tag @user, :profile_image, size: "60x60", format: 'jpeg', fallback: "no_image.jpg" %>
+    <%= attachment_image_tag user, :profile_image, size: "60x60", format: 'jpeg', fallback: "no_image.jpg" %>
     <%= book_comment.comment %>
     <% if book_comment.user == current_user %>
     <span class="comment-delete">
@@ -11,7 +11,7 @@
 <% end %>
 </div>
 <div class="new-comments">
-  <%= form_with(model:[@book, @book_comment], remote: true) do |comment| %>
+  <%= form_with(model:[book, book_comment], remote: true) do |comment| %>
       <%= comment.text_area :comment, rows:'5', class:"col-md-10" %>
       <%= comment.submit "送信" %>
   <% end %>

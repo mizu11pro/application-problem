@@ -1,6 +1,6 @@
 <% if @user.exists? %>
 <!--フォローしている人がいれば表示-->
-<div class="col-md-8 offset-md-1">
+<div class="col-md-12">
 <h2>Follow Users</h2>
     <table class="table">
         <thead>
@@ -8,6 +8,9 @@
                 <th>image</th>
                 <th>name</th>
                 <th col-span="3"></th>
+                <th col-span="4"></th>
+                <th col-span="5"></th>
+                <th col-span="6"></th>
             </tr>
         </thead>
         <tbody>
@@ -18,7 +21,7 @@
                 <td>フォロー数: <%= user.followings.count %></td>
                 <td>フォロワー数: <%= user.followers.count %></td>
                 <td>
-                <% if user == current_user %>
+                <% if user != current_user %>
                     <% if current_user.following?(user) %>
                       <%= link_to "フォロー外す", user_relationships_path(user.id), method: :delete %>
                       <!--user.idは@user.each文で持ってきてるからこの記述ではnilエラーがでない?-->

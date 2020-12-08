@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.jpostal
 //= require jquery3
 //= require popper
 //= require bootstrap-sprockets

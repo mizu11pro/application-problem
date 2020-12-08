@@ -232,9 +232,6 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
-    simple_form (5.0.3)
-      actionpack (>= 5.0)
-      activemodel (>= 5.0)
     sinatra (2.0.8.1)
       mustermann (~> 1.0)
       rack (~> 2.0)
@@ -288,6 +285,7 @@ DEPENDENCIES
   capybara (>= 2.15)
   coffee-rails (~> 4.2)
   devise
+  execjs
   factory_bot_rails
   faker
   font-awesome-sass (~> 5.13)
@@ -301,7 +299,6 @@ DEPENDENCIES
   refile-mini_magick
   rspec-rails
   sass-rails (~> 5.0)
-  simple_form
   spring
   spring-watcher-listen (~> 2.0.0)
   sqlite3

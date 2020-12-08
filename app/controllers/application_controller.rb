@@ -5,7 +5,6 @@ class ApplicationController < ActionController::Base
   # 自動住所検索機能
   # パラメータの設定を許可する
 
-
 def after_sign_in_path_for(resource)
     user_path(current_user)
 end
@@ -19,5 +18,11 @@ end
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:email]) #sign_upに：email登録を追加
   end
+  
+  # 自動住所検索
+  # def configure_permitted_parameters
+  #   devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :profile_image, :email, :postal_code, :city, :building])
+  #   devise_parameter_sanitizer.permit(:sign_in, keys: [:name])
+  # end
 
 end

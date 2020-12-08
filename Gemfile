@@ -71,3 +71,4 @@ gem 'font-awesome-sass', '~> 5.13'
 
 gem 'jp_prefecture'
 # 自動入力
+# gem 'execjs'

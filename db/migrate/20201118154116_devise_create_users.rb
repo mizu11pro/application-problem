@@ -36,6 +36,13 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.string :introduction
       t.integer :profile_image_id
       t.timestamps null: false
+
+      t.integer :postal_code, null: false
+      t.string :prefecture_code, null: false
+      t.string :city, null: false
+      t.string :street, null: false
+      t.string :other_address # 番地以降の住所がない場合もあるため、null: falseはつけない
+      # 自動住所検索機能
     end
 
     add_index :users, :email,                unique: true

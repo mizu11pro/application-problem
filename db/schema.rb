@@ -53,10 +53,11 @@ ActiveRecord::Schema.define(version: 2020_12_08_014017) do
     t.integer "profile_image_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "prefecture_code"
-    t.string "postal_city"
-    t.string "city"
-    t.string "building"
+    t.integer "postal_code", null: false
+    t.string "prefecture_code", null: false
+    t.string "city", null: false
+    t.string "street", null: false
+    t.string "other_address"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["name"], name: "index_users_on_name", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

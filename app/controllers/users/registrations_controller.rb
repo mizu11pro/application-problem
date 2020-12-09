@@ -1,9 +1,10 @@
 # frozen_string_literal: true
 
 class Users::RegistrationsController < Devise::RegistrationsController
-  # before_action :configure_sign_up_params, only: [:create]
-  # before_action :configure_account_update_params, only: [:update]
-
+  before_action :configure_sign_up_params, only: [:create]
+  before_action :configure_account_update_params, only: [:update]
+  # 自動住所検索機能
+  
   # GET /resource/sign_up
   # def new
   #   super
@@ -41,9 +42,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # protected
 
   # If you have extra params to permit, append them to the sanitizer.
-  # def configure_sign_up_params
-  #   devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute])
-  # end
+  def configure_sign_up_params
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:email, :postal_code, :prefecture_code, :city, :street, :other_address])
+  end
+  # 自動住所検索機能
+
+  def after_sign_up_path_for(resource)
+    mypage_path
+  end
+  # 自動住所検索機能
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_account_update_params

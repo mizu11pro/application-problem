@@ -1,6 +1,14 @@
 Rails.application.routes.draw do
-  devise_for :users
+
+  devise_for :users, controllers: {
+    sessions: 'users/sessions',
+    registrations: 'users/registrations',
+  }
+  # 自動住所検索
+  
   root to: 'homes#top'
+  get 'mypage', to: 'homes#mypage'
+  # 自動住所検索
   get '/home/about' => 'homes#about'
   get 'search' => 'searches#search'
 

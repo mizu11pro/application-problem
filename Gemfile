@@ -67,8 +67,11 @@ gem 'refile', require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
 gem 'bootstrap', '~> 4.5'
 gem 'jquery-rails'
+# RailsでjQueryを使えるようにするgem
+
 gem 'font-awesome-sass', '~> 5.13'
 
 gem 'jp_prefecture'
-# 自動入力
+# 都道府県コードから都道府県名を変換するgem
+
 # gem 'execjs'

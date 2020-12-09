@@ -2,6 +2,7 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
+# 自動住所検索の際に失敗した
 # $ ->
 #   $("#address_zipcode").jpostal({
 #     # 郵便番号の入力欄が１つの場合

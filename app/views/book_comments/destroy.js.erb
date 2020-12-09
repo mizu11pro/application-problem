@@ -1,3 +1,4 @@
 $('.comment-buttons'+<%= @book.id %>).html("<%= j(render 'book_comments/book_comment', book: @book, book_comment: @book_comment, user: @user) %>");
+
 $('textarea').val('');
 <!--投稿後入力欄にコメント内容が残らないようにしている-->

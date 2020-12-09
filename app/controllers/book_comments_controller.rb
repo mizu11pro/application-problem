@@ -16,6 +16,7 @@ class BookCommentsController < ApplicationController
      end
     @book_comment.destroy
     # redirect_to book_path(@book)
+    # 非同期通信
   end
 
   private

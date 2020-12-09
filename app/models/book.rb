@@ -15,6 +15,7 @@ class Book < ApplicationRecord
 
     # 検索機能
   def self.search(search,word)
+    # 注意searchコントローラーで定義した(search,word)二つのparamsを書くこと
     if search == "forward_match"
       @book = Book.where("title LIKE?","#{word}%")
       # 前方一致

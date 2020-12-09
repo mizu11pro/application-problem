@@ -1,3 +1,4 @@
 $('.favorite-buttons'+<%= @book.id %>).html("<%= j(render 'favorites/favorite-btn', book: @book) %>");
+<!--コントローラーの@bookを持ってきている-->
 <!--viewページのjsで操作する箇所を指定している.html前の記述-->
 <!--.htmlの後の記述で作動させたviewページに戻るように指定-->

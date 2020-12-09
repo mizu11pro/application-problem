@@ -1,9 +1,8 @@
 class ApplicationController < ActionController::Base
    before_action :authenticate_user!,except: [:top, :about]
    before_action :configure_permitted_parameters, if: :devise_controller?
-   add_flash_types :success, :info, :warning, :danger
-  # 自動住所検索機能
   # パラメータの設定を許可する
+   add_flash_types :success, :info, :warning, :danger
 
 def after_sign_in_path_for(resource)
     user_path(current_user)
@@ -19,15 +18,17 @@ end
     devise_parameter_sanitizer.permit(:sign_up, keys: [:email]) #sign_upに：email登録を追加
   end
 
-  # 自動住所検索
-#   devise_parameter_sanitizer.permit(:sign_up, keys: [
-#     :email,
-#     :name,
-#     :postcode,
-#     :prefecture_name,
-#     :address_city,
-#     :address_street,
-#     :address_building
-#   ])
+  # 自動住所検索機能
+  # def after_sign_in_path_for(resource)
+  #   user_path(resource)
+  # end
+
+  def after_sign_out_path_for(resource)
+    root_path
+  end
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:email, :postal_code, :prefecture_code, :city, :street])
+  end
 
 end

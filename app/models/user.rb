@@ -36,7 +36,6 @@ class User < ApplicationRecord
   validates :prefecture_code, presence: true
   validates :city, presence: true
   validates :street, presence: true
-  # 見入力防ぎ
   # 自動住所検索機能
 
   # フォロー機能
@@ -66,6 +65,7 @@ class User < ApplicationRecord
 
   # 検索機能
   def self.search(search,word)
+    # 注意searchコントローラーで定義した(search,word)二つのparamsを書くこと
     if search == "forward_match"
       @user = User.where("name LIKE?","#{word}%")
       # 前方一致
@@ -83,16 +83,20 @@ class User < ApplicationRecord
     end
   end
 
-
+  # 住所検索機能
   # include JpPrefecture
   #   jp_prefecture :prefecture_code
+    # 都道府県コードから都道府県名に自動で変換する。
+    # なくても変換できている？？
 
-  # def prefecture_name
-  #   JpPrefecture::Prefecture.find(code: prefecture_code).try(:name)
-  # end
+  def prefecture_name
+    JpPrefecture::Prefecture.find(code: prefecture_code).try(:name)
+    # ~.prefecture_nameで都道府県名を参照出来る様にする。
+    # 例) @user.prefecture_nameで該当ユーザーの住所(都道府県)を表示出来る。
+  end
 
-  # def prefecture_name=(prefecture_name)
-  #   self.prefecture_code = JpPrefecture::Prefecture.find(name: prefecture_name).code
-  # end
+  def prefecture_name=(prefecture_name)
+    self.prefecture_code = JpPrefecture::Prefecture.find(name: prefecture_name).code
+  end
 
 end

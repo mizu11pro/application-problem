@@ -1,5 +1,5 @@
-<script type="text/javascript" src="//jpostal-1006.appspot.com/jquery.jpostal.js"></script>
-<!--自動住所機能このコードで作動した-->
+<!--<script type="text/javascript" src="//jpostal-1006.appspot.com/jquery.jpostal.js"></script>-->
+<!--自動住所機能このコードで作動した(sign_upできなくなる)-->
 
 <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0">
   <h2>Sign up</h2>
@@ -21,22 +21,22 @@
 
 
     <div class="field">
-      <%= f.label :postal_code %><br>
-      <%= f.text_field :postal_code %>
+    <%= f.label :postal_code %><br />
+    <%= f.text_field :postal_code %>
     </div>
 
     <div class="field">
-      <%= f.label :prefecture_code %><br>
+      <%= f.label :prefecture_code %><br />
       <%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :name, :name %>
     </div>
 
     <div class="field">
-      <%= f.label :city %><br>
+      <%= f.label :city %><br />
       <%= f.text_field :city %>
     </div>
 
     <div class="field">
-      <%= f.label :street %><br>
+      <%= f.label :street %><br />
       <%= f.text_field :street %>
     </div>
     <!--<div class="field">-->

@@ -1,6 +1,8 @@
 <% if @range == '1' %>
+<!--検索時に指定した番号が1の時は下記を表示-->
 <div class="col-md-12">
     <h3>User search for '<%= @word %>'</h3>
+    <!--searchコントローラーでインスタンス変数で定義したから@wordで検索内容を飛ばしている-->
     <table class="table table-striped">
         <thead>
             <tr>

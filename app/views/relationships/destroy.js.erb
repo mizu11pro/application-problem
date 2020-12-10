@@ -1,0 +1,5 @@
+$('#relationship-button-<%= @user.id %>').html("<%= j(render 'relationships/follow-button', user: @user )%>")
+
+$('#relationship-button-<%= current_user.id %>').html("<%= j(render 'relationships/follow-button', user: current_user )%>")
+
+<!--$('#follower-count-%= @user.id %>').html("%= j(render 'books/list', user: @user, book: @book )%>")-->

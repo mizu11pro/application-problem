@@ -3,6 +3,7 @@ class UsersController < ApplicationController
 
   def index
     @book = Book.new
+    # puts "aa" デバック
     @users = User.all
   end
 

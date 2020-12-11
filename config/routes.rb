@@ -19,6 +19,7 @@ Rails.application.routes.draw do
     get 'followings' => 'relationships#followings'
     get 'followers' => 'relationships#followers'
   end
+  # doで親子関係 通称ネストする
   resources :books, only: [:new, :create, :index, :show, :edit, :update, :destroy ] do
     resources :book_comments, only: [:create, :destroy]
     resource :favorites, only: [:create, :destroy]

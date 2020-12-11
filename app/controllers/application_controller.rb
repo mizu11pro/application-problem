@@ -23,6 +23,7 @@ end
   #   user_path(resource)
   # end
 
+  # 自動検索機能
   def after_sign_out_path_for(resource)
     root_path
   end

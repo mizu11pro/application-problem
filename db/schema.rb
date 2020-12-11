@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 2020_12_08_014017) do
     t.datetime "remember_created_at"
     t.string "name"
     t.string "introduction"
-    t.integer "profile_image_id"
+    t.string "profile_image_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "postal_code"

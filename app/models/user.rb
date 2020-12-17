@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_many :books, dependent: :destroy
   has_many :book_comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
-  # has_manyで使用できるオプション 1のデータが削除された場合Nのデータも削除
+  #dependent: :destroy has_manyで使用できるオプション 1のデータが削除された場合Nのデータも削除
   attachment :profile_image
 
   # フォロー機能

@@ -16,6 +16,7 @@ end
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:email]) #sign_upに：email登録を追加
+    # 後々変更するデータの変更許可証てきなもの
   end
 
   # 自動住所検索機能
@@ -30,6 +31,7 @@ end
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:email, :postal_code, :prefecture_code, :city, :street])
+      # 後々変更するデータの変更許可証てきなもの
   end
 
 end

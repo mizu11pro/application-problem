@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   devise_for :users
+  # deviseを使用した際のURLとしてuserを含むことを示している
   # controllers: {
   #   sessions: 'users/sessions',
   #   registrations: 'users/registrations',
@@ -15,6 +16,8 @@ Rails.application.routes.draw do
   # 検索内容用のページ
 
   resources :users, only: [:new, :create, :index, :show, :edit, :update, :destroy] do
+    # resources :books, except: [:destroy]
+    # except: [destroy] destroyのみ除外する
     resource :relationships, only: [:create, :destroy]
     get 'followings' => 'relationships#followings'
     get 'followers' => 'relationships#followers'

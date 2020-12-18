@@ -19,25 +19,29 @@
       <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
     </div>
 
-
+    <!--自動住所検索機能-->
     <div class="field">
     <%= f.label :postal_code %><br />
     <%= f.text_field :postal_code %>
+    <!--郵便番号-->
     </div>
 
     <div class="field">
       <%= f.label :prefecture_code %><br />
       <%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :name, :name %>
+      <!--47都道府県-->
     </div>
 
     <div class="field">
       <%= f.label :city %><br />
       <%= f.text_field :city %>
+      <!--住所-->
     </div>
 
     <div class="field">
       <%= f.label :street %><br />
       <%= f.text_field :street %>
+      <!--番地-->
     </div>
     <!--<div class="field">-->
     <!--  = f.label :other_address %><br>-->

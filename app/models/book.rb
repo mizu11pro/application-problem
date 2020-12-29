@@ -9,6 +9,7 @@ class Book < ApplicationRecord
     # いいね機能
   def favorited_by?(user)
       favorites.where(user_id: user.id).exists?
+      # where  特定のデータを
     #  user_idのテーブルカラムの引数で渡されたユーザidがfavoritesテーブル内に存在(exists?)するかどうかを調べる
     #  存在していればtrue,なければfalseを返すようにしている
   end

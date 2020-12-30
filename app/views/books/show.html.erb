@@ -23,7 +23,7 @@
       </tr>
     </tbody>
   </table>
-        <div class=<%= "comment-buttons" +@book.id.to_s %>>
+        <div class=<%= "comment-buttoms" +@book.id.to_s %>>
           <%= render 'book_comments/book_comment', book: @book, book_comment: @book_comment, user: @user %>
           <!--部分テンプレートでインスタンス変数は使用しないので@をとったローカル変数にインスタンス変数を代入↑-->
         </div>

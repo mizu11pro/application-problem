@@ -11,6 +11,7 @@ class FavoritesController < ApplicationController
     @book = Book.find(params[:book_id])
     favorite = current_user.favorites.find_by(user_id: current_user, book_id: @book.id)
     # current_userのfavorutesの中から(user_idカラムのcurrent_user)と、(book_idカラムの@book.id)と一致するものを取得
+    # user_id: current_userのデータ代入はなくても起動する(確認済み)
     favorite.destroy
     # redirect_to request.referer
     # 非同期通信の際はredirect_toやrenderは不要

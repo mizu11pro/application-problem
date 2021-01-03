@@ -1,5 +1,6 @@
 class RelationshipsController < ApplicationController
     before_action :authenticate_user!
+    # ログインしているユーザのみの使用
 
   def create
     current_user.follow(params[:user_id])
